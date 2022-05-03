@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import HomePage from './HomePage.jsx';
-import ActivityTracker from './ActivityTracker.jsx';
+import HomePage from './home/HomePage.jsx';
+import ActivityTracker from './activities/ActivityTracker.jsx';
 import Container from './styled/Container';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     <>
     <h1>Afterburn</h1>
     <Container>
-      {/* <HomePage /> */}
+      <HomePage />
       <ActivityTracker />
     </Container>
     </>

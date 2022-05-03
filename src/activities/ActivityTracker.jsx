@@ -1,6 +1,6 @@
 import { DropdownButton, Dropdown, Table } from 'react-bootstrap';
 import React, { useState } from 'react';
-import FlexContainer from './styled/FlexContainer.js';
+import FlexContainer from '../styled/FlexContainer.js';
 import ActivityModal from './ActivityModal.jsx';
 import ActivityRows from './ActivityRows.jsx';
 import Totals from './Totals.jsx';

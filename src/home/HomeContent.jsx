@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dropdown, DropdownButton, Table } from 'react-bootstrap';
-import FlexContainer from './styled/FlexContainer.js';
+import FlexContainer from '../styled/FlexContainer.js';
 const HomeContent = () => {
 
   return (
