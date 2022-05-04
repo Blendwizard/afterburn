@@ -3,6 +3,7 @@ import HomePage from './home/HomePage.jsx';
 import ActivityTracker from './activities/ActivityTracker.jsx';
 import FoodLog from './nutrition/FoodLog.jsx';
 import Container from './styled/Container';
+import GlobalStyle from './styled/global.css';
 
 const App = () => {
 
@@ -10,11 +11,12 @@ const App = () => {
 
   return (
     <>
-    <h1>Afterburn</h1>
+    <GlobalStyle />
+    <h1>AFTERBURN</h1>
     <Container>
-      {/* <HomePage />
-      <ActivityTracker /> */}
-      <FoodLog />
+      <HomePage />
+      {/* <ActivityTracker />
+      <FoodLog /> */}
     </Container>
     </>
 

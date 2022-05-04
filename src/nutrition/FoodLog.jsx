@@ -21,9 +21,7 @@ const FoodLog = () => {
       calories: foodCalories
     }
     setFoodItems(foodItems => [...foodItems, newFood]);
-    setFoodName('');
-    setFoodAmount('');
-    setFoodCalories('');
+
   }
 
   const calculateTotal = () => {
