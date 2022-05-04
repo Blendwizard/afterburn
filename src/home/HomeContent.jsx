@@ -22,32 +22,6 @@ const HomeContent = () => {
               <td>2500</td>
               <td>-300</td>
             </tr>
-            <tr>
-              <td>1/16/2022</td>
-              <td>2600</td>
-              <td>2500</td>
-              <td>+100</td>
-            </tr>
-            <tr>
-              <td>1/17/2022</td>
-              <td>2900</td>
-              <td>2500</td>
-              <td>+400</td>
-            </tr>
-            <tr>
-              <th>
-
-              </th>
-              <th>
-
-              </th>
-              <th>
-                Average
-              </th>
-              <th>
-                2400
-              </th>
-            </tr>
           </tbody>
         </Table>
       </FlexContainer>
