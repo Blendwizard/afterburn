@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "dev": "webpack server --open"
+    "dev": "webpack server --open",
+    "start-server": "nodemon server/index.js"
+
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/Blendwizard/afterburn#readme",
   "dependencies": {
     "bootstrap": "^5.1.3",
+    "express": "^4.18.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.3.1",
     "react-dom": "^18.1.0",
@@ -33,6 +36,7 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "nodemon": "^2.0.16",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2",
