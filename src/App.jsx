@@ -5,6 +5,7 @@ import ActivityTracker from './activities/ActivityTracker.jsx';
 import FoodLog from './nutrition/FoodLog.jsx';
 import Container from './styled/Container';
 import GlobalStyle from './styled/global.css';
+import Header from './styled/Header.js';
 
 const App = () => {
 
@@ -17,8 +18,10 @@ const App = () => {
   return (
     <>
     <GlobalStyle />
-    <h1>AFTERBURN</h1>
-    <Navigation changeView={changeView}/>
+    <Header>
+      <h1>AFTERBURN</h1>
+      <Navigation changeView={changeView}/>
+    </Header>
     <Container>
       {view === 'Home' ? <HomePage />
       :

@@ -9,6 +9,7 @@ const ActivityModal = ({ show, handleClose, handleShow, addActivity }) => {
 
   const handleSubmit = () => {
     addActivity(null, activityName, duration, caloriesBurned)
+    handleClose();
   }
 
 
@@ -54,7 +55,7 @@ const ActivityModal = ({ show, handleClose, handleShow, addActivity }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose, handleSubmit}>
+          <Button variant="primary" onClick={handleSubmit}>
             Save Changes
           </Button>
         </Modal.Footer>

@@ -30,7 +30,7 @@ const ActivityTracker = () => {
   }
 
   return (
-    <FlexContainer direction="column" align="center" color="2px solid orange" >
+    <FlexContainer direction="column" align="center" color="2px solid orange" gap="1em" >
     <h2>Activity Tracker</h2>
     <DropdownButton id="dropdown-basic-button" title="Add Activity">
       <Dropdown.Item onClick={handleShow}>Custom</Dropdown.Item>

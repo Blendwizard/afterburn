@@ -14,11 +14,16 @@ export default createGlobalStyle`
 
   h1 {
     font-size: 72px;
-    background: -webkit-linear-gradient(red, orange);
+    background: -webkit-linear-gradient(orange, red);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Exo 2, sans-serif;
     font-weight: 700;
+    &:hover {
+      font-weight: 200;
+      cursor: pointer;
+    }
+
   }
 
   h3 {
@@ -26,5 +31,9 @@ export default createGlobalStyle`
       background-color: black;
       cursor: pointer;
     }
+  }
+
+  .modal-content {
+    background-color: black
   }
 `;
