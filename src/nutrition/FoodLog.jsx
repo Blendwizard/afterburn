@@ -1,28 +1,42 @@
 import { DropdownButton, Dropdown, Table, Button } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FlexContainer from '../styled/FlexContainer';
 import LogRows from './LogRows.jsx';
 
 const FoodLog = () => {
-  const [foodItems, setFoodItems] = useState([ {name: 'Peanut Butter', amount: '32 grams', calories: '200'} ])
+  const [foodItems, setFoodItems] = useState([{ name: 'Peanut Butter', amount: '32 grams', calories: '200' }])
   const [foodName, setFoodName] = useState('');
   const [foodAmount, setFoodAmount] = useState('');
   const [foodCalories, setFoodCalories] = useState('');
+  const [total, setTotal] = useState('');
 
   const additem = () => {
+    if (!foodName || !foodAmount || !foodCalories) {
+      alert('Please complete all fields to continue')
+      return;
+    }
     const newFood = {
       name: foodName,
       amount: foodAmount,
       calories: foodCalories
     }
-
     setFoodItems(foodItems => [...foodItems, newFood]);
-
+    setFoodName('');
+    setFoodAmount('');
+    setFoodCalories('');
   }
 
+  const calculateTotal = () => {
+    let sum = 0;
+
+    foodItems.forEach((item) => {
+      sum += parseInt(item.calories);
+    })
+    setTotal(sum.toString());
+  }
 
   const handleFoodChange = (e) => {
-    console.log(e.target.className)
+
     if (e.target.className === 'name') {
       setFoodName(e.target.value)
     } else if (e.target.className === 'amount') {
@@ -32,32 +46,41 @@ const FoodLog = () => {
     }
   }
 
+  useEffect(() => {
+    calculateTotal();
+  }, [foodItems])
+
   return (
     <FlexContainer direction="column" gap="1em" align="center" color="2px solid orange">
-    <h2>Food Log</h2>
-    <FlexContainer direction="row" color="2px dotted green">
-      <Button onClick={additem} variant="success">Add Food</Button>
-      <FlexContainer gap="1em" wrap="wrap" align="center" color="2px solid purple">
-        <label>Food/Drink</label>
-        <input className="name" onChange={handleFoodChange}></input>
-        <label>Amount</label>
-        <input className="amount" onChange={handleFoodChange}></input>
-        <label>Calories</label>
-        <input onChange={handleFoodChange}></input>
+      <h2>Food Log</h2>
+      <FlexContainer direction="row" color="2px dotted green">
+        <Button onClick={additem} variant="success">Add Food</Button>
+        <FlexContainer gap="1em" wrap="wrap" align="center" color="2px solid purple">
+          <label>Food/Drink</label>
+          <input className="name" onChange={handleFoodChange}></input>
+          <label>Amount</label>
+          <input className="amount" onChange={handleFoodChange}></input>
+          <label>Calories</label>
+          <input type="number" onChange={handleFoodChange}></input>
+        </FlexContainer>
       </FlexContainer>
-    </FlexContainer>
-    <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>Food/Beverage</th>
-              <th>Serving Size/Amount</th>
-              <th>Total Calories</th>
-            </tr>
-          </thead>
-          <tbody>
-            <LogRows foodItems={foodItems}/>
-          </tbody>
-        </Table>
+      <Table striped bordered hover variant="dark">
+        <thead>
+          <tr>
+            <th>Food/Beverage</th>
+            <th>Serving Size/Amount</th>
+            <th>Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <LogRows foodItems={foodItems} />
+          <tr>
+            <td></td>
+            <td>Total Intake</td>
+            <td>{total}</td>
+          </tr>
+        </tbody>
+      </Table>
     </FlexContainer>
   )
 }
