@@ -20,4 +20,11 @@ export default createGlobalStyle`
     font-family: Exo 2, sans-serif;
     font-weight: 700;
   }
+
+  h3 {
+    &:hover {
+      background-color: black;
+      cursor: pointer;
+    }
+  }
 `;
