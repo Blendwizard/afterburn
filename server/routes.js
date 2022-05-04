@@ -1,7 +1,9 @@
+const database = require('./database/index.js');
+
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-  console.log("Hitting");
+  database.test();
   res.sendStatus(200)
 })
 
