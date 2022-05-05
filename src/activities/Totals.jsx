@@ -10,6 +10,11 @@ const Totals = ({ activities }) => {
       sum += parseInt(activity.caloriesBurned);
     })
     setTotal(sum.toString());
+    let item = JSON.parse(localStorage.getItem(1));
+    item.caloriesBurned = sum;
+    item.afterBurning = item.total - item.caloriesBurned;
+    item.delta = item.afterBurning - item.target;
+    localStorage.setItem(1, JSON.stringify(item));
   }
 
   useEffect(() => {

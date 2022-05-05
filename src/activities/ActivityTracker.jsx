@@ -13,7 +13,7 @@ const ActivityTracker = () => {
   const handleShow = () => setShow(true);
 
   // Activity state
-  const [activities, setActivities] = useState([{activity: 'Swimming', duration: '30 minutes', caloriesBurned: '200'}, {activity: 'Walking', duration: '100 minutes', caloriesBurned: '1000'}]);
+  const [activities, setActivities] = useState([]);
 
   const addActivity = (e, name, time, cals) => {
     let activity = name || e.target.text;
@@ -25,12 +25,12 @@ const ActivityTracker = () => {
       duration: duration,
       caloriesBurned: caloriesBurned
     }
-
     setActivities(activities => [...activities, newActivity]);
+
   }
 
   return (
-    <FlexContainer direction="column" align="center" color="2px solid orange" gap="1em" >
+    <FlexContainer direction="column" align="center" gap="1em" >
     <h2>Activity Tracker</h2>
     <DropdownButton id="dropdown-basic-button" title="Add Activity">
       <Dropdown.Item onClick={handleShow}>Custom</Dropdown.Item>
@@ -50,7 +50,7 @@ const ActivityTracker = () => {
             </tr>
           </thead>
           <tbody>
-            <ActivityRows activities={activities.length > 0 ? activities : null} />
+            <ActivityRows activities={activities} />
             <Totals activities={activities} />
           </tbody>
         </Table>

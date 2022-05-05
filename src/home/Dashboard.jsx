@@ -1,9 +1,29 @@
-import React from 'react';
-import { Dropdown, DropdownButton, Table } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Dropdown, DropdownButton, Table, Button } from 'react-bootstrap';
 
-const Dashboard = ({ target }) => {
+const Dashboard = ({ target, deleteDashboard }) => {
+
+  const [data, setData] = useState({});
+
+  const today = new Date();
+  const now = today.toLocaleString().split(',');
+  const formattedDate = now[0];
+
+  const handleClick = () => {
+    deleteDashboard();
+  }
+
+  const loadData = () => {
+    const dataObj = localStorage.getItem(1);
+    setData(JSON.parse(dataObj));
+  }
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   return (
+    <>
     <Table striped bordered hover variant="dark">
     <thead>
       <tr>
@@ -15,13 +35,15 @@ const Dashboard = ({ target }) => {
     </thead>
     <tbody>
       <tr>
-        <td>1/15/2022</td>
-        <td>2200</td>
-        <td>{target}</td>
-        <td>-300</td>
+        <td>{formattedDate}</td>
+        <td></td>
+        <td>{data.target}</td>
+        <td></td>
       </tr>
     </tbody>
   </Table>
+  <Button onClick={handleClick} variant="danger">Delete Log</Button>
+  </>
   )
 
 }

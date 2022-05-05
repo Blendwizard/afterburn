@@ -4,7 +4,7 @@ import FlexContainer from '../styled/FlexContainer';
 import LogRows from './LogRows.jsx';
 
 const FoodLog = () => {
-  const [foodItems, setFoodItems] = useState([{ name: 'Peanut Butter', amount: '32 grams', calories: '200' }])
+  const [foodItems, setFoodItems] = useState([{name: 'Apple', amount: '100 grams', calories: '100'}])
   const [foodName, setFoodName] = useState('');
   const [foodAmount, setFoodAmount] = useState('');
   const [foodCalories, setFoodCalories] = useState('');
@@ -31,6 +31,10 @@ const FoodLog = () => {
       sum += parseInt(item.calories);
     })
     setTotal(sum.toString());
+    let item = JSON.parse(localStorage.getItem(1));
+    item.total = sum;
+    item.delta = item.total - item.target;
+    localStorage.setItem(1, JSON.stringify(item));
   }
 
   const handleFoodChange = (e) => {
@@ -46,14 +50,15 @@ const FoodLog = () => {
 
   useEffect(() => {
     calculateTotal();
+
   }, [foodItems])
 
   return (
-    <FlexContainer direction="column" gap="1em" align="center" color="2px solid orange">
+    <FlexContainer direction="column" gap="1em" align="center">
       <h2>Food Log</h2>
-      <FlexContainer direction="row" color="2px dotted green">
+      <FlexContainer direction="row">
         <Button onClick={additem} variant="success">Add Food</Button>
-        <FlexContainer gap="1em" wrap="wrap" align="center" color="2px solid purple">
+        <FlexContainer gap="1em" wrap="wrap" align="center">
           <label>Food/Drink</label>
           <input className="name" onChange={handleFoodChange}></input>
           <label>Amount</label>

@@ -44,6 +44,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
+
     compress: true,
     // [port] what port on our local machine to run the dev server
     port: 3000,

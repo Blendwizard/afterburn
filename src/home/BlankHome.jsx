@@ -8,7 +8,9 @@ const BlankHome = ({ createDashboard }) => {
   const [target, setTarget] = useState('');
 
   const handleClick = () => {
-    createDashboard(parseInt(target));
+    if (target > 0) {
+      createDashboard(parseInt(target));
+    }
   }
 
   const handleChange = (e) => {

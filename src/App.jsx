@@ -15,6 +15,7 @@ const App = () => {
     setView(view)
   }
 
+
   return (
     <>
     <GlobalStyle />
@@ -28,8 +29,6 @@ const App = () => {
       view === 'ActivitiesTracker' ? <ActivityTracker />
       :
       view === 'FoodLog' ? <FoodLog /> : null}
-      {/* <ActivityTracker />
-      <FoodLog /> */}
     </Container>
     </>
 

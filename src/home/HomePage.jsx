@@ -3,6 +3,9 @@ import HomeHeader from '../styled/HomeHeader.js';
 import HomeContent from './HomeContent.jsx';
 
 const HomePage = () => {
+
+
+
   return (
     <>
     <HomeHeader justify='center'>
