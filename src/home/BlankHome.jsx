@@ -19,7 +19,7 @@ const BlankHome = ({ createDashboard }) => {
 
   return (
     <>
-    <FlexContainer align="center">
+    <FlexContainer gap="1em" align="center">
       <Button onClick={handleClick}>New Log</Button>
       <label>Target Calories</label>
       <input onChange={handleChange} type="number"></input>

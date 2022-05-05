@@ -28,7 +28,7 @@ export default createGlobalStyle`
 
   h3 {
     &:hover {
-      background-color: black;
+      font-weight: 600;
       cursor: pointer;
     }
   }
