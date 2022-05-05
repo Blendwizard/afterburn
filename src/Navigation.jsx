@@ -8,11 +8,18 @@ const Navigation = ({ changeView }) => {
   }
 
   const switchToActivities = () => {
-    changeView('ActivitiesTracker');
+    const check = localStorage.getItem(1);
+    if (check !== null) {
+      changeView('ActivitiesTracker');
+    }
+
   }
 
   const switchToFoodLog = () => {
-    changeView('FoodLog');
+    const check = localStorage.getItem(1);
+    if (check !== null) {
+      changeView('FoodLog');
+    }
   }
 
 
