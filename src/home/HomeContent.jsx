@@ -22,7 +22,7 @@ const HomeContent = () => {
       return;
     } else {
       setTarget(startingTarget)
-      localStorage.setItem(1, JSON.stringify({target: startingTarget, delta: 0, caloriesBurned: 0, total: 0, afterBurning: 0}));
+      localStorage.setItem(1, JSON.stringify({target: startingTarget, delta: 0, caloriesBurned: 0, total: 0, afterBurning: 0, foods: [], exercises: []}));
       setView(true);
     }
   }

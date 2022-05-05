@@ -1,5 +1,5 @@
 import { DropdownButton, Dropdown, Table } from 'react-bootstrap';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FlexContainer from '../styled/FlexContainer.js';
 import ActivityModal from './ActivityModal.jsx';
 import ActivityRows from './ActivityRows.jsx';
@@ -25,9 +25,19 @@ const ActivityTracker = () => {
       duration: duration,
       caloriesBurned: caloriesBurned
     }
+
+    const data = JSON.parse(localStorage.getItem(1));
+    data.exercises.push(newActivity);
+    localStorage.setItem(1, JSON.stringify(data));
+
     setActivities(activities => [...activities, newActivity]);
 
   }
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem(1));
+    setActivities(data.exercises)
+  }, [])
 
   return (
     <FlexContainer direction="column" align="center" gap="1em" >

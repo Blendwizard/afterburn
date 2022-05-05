@@ -20,6 +20,10 @@ const FoodLog = () => {
       amount: foodAmount,
       calories: foodCalories
     }
+    const data = JSON.parse(localStorage.getItem(1));
+    data.foods = [...data.foods, newFood];
+    localStorage.setItem(1, JSON.stringify(data));
+
     setFoodItems(foodItems => [...foodItems, newFood]);
 
   }
@@ -47,6 +51,13 @@ const FoodLog = () => {
       setFoodCalories(e.target.value)
     }
   }
+
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem(1));
+    console.log(items.foods)
+    setFoodItems(items.foods);
+
+  }, [])
 
   useEffect(() => {
     calculateTotal();

@@ -36,9 +36,9 @@ const Dashboard = ({ target, deleteDashboard }) => {
     <tbody>
       <tr>
         <td>{formattedDate}</td>
-        <td></td>
+        <td>{data.afterBurning}</td>
         <td>{data.target}</td>
-        <td></td>
+        <td>{data.delta}</td>
       </tr>
     </tbody>
   </Table>
